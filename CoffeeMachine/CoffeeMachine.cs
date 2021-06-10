@@ -19,12 +19,23 @@ namespace CoffeeMachine
             set { _powerButton = value; }
         }
 
-        public CoffeeMachine(IContainer beanContainer, IContainer waterContainer, Filter filter, bool powerButton)
+        public CoffeeMachine(IContainer ingredientContainer, IContainer liquidContainer, Filter filter, bool powerButton)
         {
-            MachineBeanContainer = beanContainer;
-            MachineWaterContainer = waterContainer;
+            MachineBeanContainer = ingredientContainer;
+            MachineWaterContainer = liquidContainer;
             MachineFilter = filter;
             PowerButton = powerButton;
+        }
+
+        public void CoffeeMode(BeanContainer coffeeContainer)
+        {
+            MachineBeanContainer = coffeeContainer;
+
+        }
+
+        public void TeaMode(TeaContainer teaContainer)
+        {
+            MachineBeanContainer = teaContainer;
         }
     }
 }
